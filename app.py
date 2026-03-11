@@ -61,7 +61,7 @@ def delete_task(task_id):
     return jsonify({'message': 'Task deleted'})
 
 @app.route('/', methods=['GET'])
-def home():
+def inicio():
     return render_template('index.html')
 
 if __name__ == '__main__':
