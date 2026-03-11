@@ -63,4 +63,9 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Render (and other PaaS) provide the port via the PORT env var.
+    # Listening on 0.0.0.0 ensures external access to the container.
+    import os
+
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
